@@ -1,8 +1,4 @@
-#include<iostream>
-#include<cstring>
-#include<vector>
-#include <algorithm>
-#include<map>
+#include<stdc++.h>
 using namespace std;
 
 
@@ -21,7 +17,9 @@ void function()
     min_element(arr1.begin(),arr1.end());
     max_element(arr1.begin(),arr1.end());
     
-    
+    //求和
+    //前两个参数为范围，第三个参数为累加的初始值
+    accumulate(arr1.begin(),arr1.end(),0);
     //得到排序后第3小的元素
     nth_element(arr1.begin(),arr1.begin()+2,arr1.end());
 
@@ -61,8 +59,8 @@ void DataStruct()
 //vector部分
 
 void vector_func()
-{
-    vector<int> arr;
+{   //初始化vector存10个数字，且每位为1
+    vector<int> arr(10,1);
     
     arr.push_back(1);//在vector的末尾添加一个元素
     arr.push_back(2);
