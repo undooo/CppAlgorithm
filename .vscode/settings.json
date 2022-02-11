@@ -3,6 +3,7 @@
         "vector": "cpp",
         "algorithm": "cpp",
         "iostream": "cpp",
-        "condition_variable": "cpp"
+        "condition_variable": "cpp",
+        "numeric": "cpp"
     }
 }
