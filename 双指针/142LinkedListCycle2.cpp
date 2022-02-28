@@ -27,6 +27,11 @@ n=m+k
 意味着快/慢指针只需再走m步，就可到达环节点，同时，从头节点到达环节点也需要m步，所以可以将其中一个返回到头节点，然后各走一步直至相遇，就可到达环节点。
 
 */
+struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
