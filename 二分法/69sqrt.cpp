@@ -12,7 +12,19 @@ using namespace std;
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 */
+//1.将根号换地为对数
+class Solution {
+public:
+    int mySqrt(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        int ans = exp(0.5 * log(x));
+        return ((long long)(ans + 1) * (ans + 1) <= x ? ans + 1 : ans);
+    }
+};
 
+//2.二分查找
 class Solution {
 public:
     int mySqrt(int x) {
