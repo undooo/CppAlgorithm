@@ -1,12 +1,12 @@
-#include <iostream>
+#include "stdc++.h"
 using namespace std;
 
 char a[10];
 int main()
 {   
-    int a=6;
-    if(a-->8);
-    cout<<a<<endl;
+    vector<vector<int>> nums{{}};
+    int x=nums[0].size();
+    cout<<x;
     system("pause");
     return 0;
 }
