@@ -20,7 +20,21 @@ void StringFunction()
     ss<<x;
     ss>>str;
 
+    //去重操作
+    string s="aabbcderr";
+    auto itr=unique(s.begin(),s.end());
+    s.erase(itr,s.end());
+    cout<<s;
 
 
+}
 
+int main(){
+    string s="rdababbcderr";
+    sort(s.begin(),s.end());
+    auto itr=unique(s.begin(),s.end());
+    s.erase(itr,s.end());
+    cout<<s;
+    system("pause");
+    return 0;
 }

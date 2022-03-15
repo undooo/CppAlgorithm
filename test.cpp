@@ -1,48 +1,49 @@
-#include<iostream>
-#include<vector>
-#include<math.h>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-vector<vector<int>> dp(105,vector<int>(100005,0));
-vector<int> a;
+int days[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+bool check(int year)
+{
+	return year % 400 == 0 || year % 4 == 0 && year % 100 != 0;
+}
+
+int get_day(int year, int month)
+{
+	if(month == 2) return 28 + check(year);
+	return days[month];
+}
+
 int main()
-{   //读取相关信息
-    //动态规划，从第一个砝码开始，依次判断是否会有更多的重量
-    int num,singal_weight,sum;
-    cin>>num;
-    for(int i=0;i<num;i++){
-        cin>>singal_weight;
-        a.push_back(singal_weight);
-        sum+=singal_weight;
-    }
-    dp[0][a[0]]=1;
-    //从第二个砝码开始判断
-    for(int i=1;i<num;i++){
-        
-        //复制上一组的状况
-        for(int j=0;j<=sum;j++){
-            dp[i][j]=dp[i-1][j];
-        }
-        //自己本身的重量肯定可以求出来
-        dp[i][a[i]]=1;
-        //知道了这些之后，开始判断之前的值与当前砝码能判断的重量
-        for(int k=0;k<=sum;k++){
-            if(dp[i][k]==1){
-                //第一种，求和
-             
-                dp[i][k+a[i]]=1;
-                //第二种，求差
-                
-                dp[i][abs(k-a[i])]=1;
-            }
-        }
-    }
-    int ans=0;
-    for(int i=0;i<=sum;i++){
-        ans=dp[num-1][i]==1?ans+1:ans;
-    
-    }
-    cout<<ans;
-    system("pause");
-    return 0;
+{
+	int n;
+	cin >> n;
+	
+	string ans1, ans2;
+	bool flag1 = false, flag2 = false;
+	for (int i = n / 10000; i <= 9999; i ++)
+	{
+		string a = to_string(i);
+		string b = a;
+		reverse(b.begin(), b.end());
+		if(a + b <= to_string(n)) continue;
+		
+		int month = stoi(b.substr(0, 2));
+		int day = stoi(b.substr(2, 2));
+		if(month < 1 || month > 12) continue;
+		if(day < 1 || day > get_day(i, month)) continue;
+		
+		string s1 = a.substr(0, 2);
+		string s2 = a.substr(2, 2);
+		if(!flag1) ans1 = a + b, flag1 = true;
+		if(!flag2 && s1 == s2 && s1[0] != s1[1]) ans2 = a + b, flag2 = true;
+
+		if(flag1 && flag2) break;
+	}
+	
+	cout << ans1 << endl;
+	cout << ans2 << endl;
+	system("pause");
+	return 0;
 }
