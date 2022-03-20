@@ -33,7 +33,7 @@ void vector_func()
   //统计value为1的key有几个
   int ans=count(ex.begin(),ex.end(),1);
     //自定义统计方法
-    count(ex.begin(),ex.end(),cmp);
+    count_if(ex.begin(),ex.end(),cmp);
    vector<int>::iterator p_arr;
     for(p_arr=arr.begin();p_arr !=arr.end();p_arr++)
     {

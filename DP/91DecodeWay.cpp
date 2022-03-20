@@ -21,24 +21,28 @@ using namespace std;
 
 */
 
-class Solution {
+class Solution
+{
 public:
     //动态规划
-    int numDecodings(string s) {
-      
-     
-        int size=s.size();
+    int numDecodings(string s)
+    {
+
+        int size = s.size();
         //创立一个动态数组
-        vector<int> dp(size+1);
-        dp[0]=1;
-        for(int i=1;i<=size;i++){
+        vector<int> dp(size + 1);
+        dp[0] = 1;
+        for (int i = 1; i <= size; i++)
+        {
             //第一种，当前解码只取当前的数字
-            if(s[i-1]!='0'){
-                dp[i]+=dp[i-1];
+            if (s[i - 1] != '0')
+            {
+                dp[i] += dp[i - 1];
             }
             //第二种，合成两位数
-            if(i>1 && s[i-2]!='0' && 10*(s[i-2]-'0')+s[i-1]-'0'<=26 ){
-                dp[i]+=dp[i-2];
+            if (i > 1 && s[i - 2] != '0' && 10 * (s[i - 2] - '0') + s[i - 1] - '0' <= 26)
+            {
+                dp[i] += dp[i - 2];
             }
         }
         return dp[size];
