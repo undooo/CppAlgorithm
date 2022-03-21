@@ -7,9 +7,7 @@ using namespace std;
 
 注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/sqrtx
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
 
 */
 //1.将根号换地为对数
