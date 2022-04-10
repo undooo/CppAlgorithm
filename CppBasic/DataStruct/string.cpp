@@ -1,7 +1,13 @@
 #include "stdc++.h"
 using namespace std;
 
-
+int stoi(string s){
+    stringstream ss;
+    ss<<s;
+    int a;
+    ss>>a;
+    return a;
+}
 void StringFunction()
 {   string a;
     //1.substr
