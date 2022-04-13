@@ -10,7 +10,7 @@ int gcd(int m,int n){
 //最小公倍数=两数相乘/最大公因数
 
 int lcm(int a,int b){
-    return a*b/gcd(a.b);
+    return a*b/gcd(a,b);
 }
 
 
